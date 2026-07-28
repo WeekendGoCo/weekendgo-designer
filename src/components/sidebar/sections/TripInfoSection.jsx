@@ -1,16 +1,39 @@
+import { useEffect, useState } from 'react';
 import { CURRENCIES } from '../../../lib/constants';
-import { fileToBase64 } from '../../../lib/utils';
-import { UploadCloud } from 'lucide-react';
+import { fileToBase64, fileToCoverBase64 } from '../../../lib/utils';
+import { db } from '../../../lib/db';
+import { UploadCloud, MapPin } from 'lucide-react';
 export default function TripInfoSection({ tripData, updateTripData, tripName, onNameChange }) {
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    setCountries(db.getCountries());
+  }, []);
+
   const handleChange = (field, value) => {
     updateTripData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const selectedCountry = countries.find(c => c.name === tripData.country);
+  const selectedCities = (tripData.cities || '').split(/[,\u060c]/).map(s => s.trim()).filter(Boolean);
+
+  const handleCountryChange = (countryName) => {
+    // Changing country resets the previously chosen cities (they belonged to the old country)
+    updateTripData(prev => ({ ...prev, country: countryName, cities: '' }));
+  };
+
+  const toggleCity = (cityName) => {
+    const next = selectedCities.includes(cityName)
+      ? selectedCities.filter(c => c !== cityName)
+      : [...selectedCities, cityName];
+    handleChange('cities', next.join('، '));
   };
 
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     if (file) {
       try {
-        const base64 = await fileToBase64(file);
+        const base64 = await fileToCoverBase64(file);
         handleChange('coverImage', base64);
       } catch (err) {
         console.error('Error reading file:', err);
@@ -35,18 +58,50 @@ export default function TripInfoSection({ tripData, updateTripData, tripName, on
           onChange={e => handleChange('badge', e.target.value)}
           style={inputStyle}
         />
-        <input 
-          placeholder="الدولة" 
-          value={tripData.country} 
-          onChange={e => handleChange('country', e.target.value)}
+        <select
+          value={tripData.country || ''}
+          onChange={e => handleCountryChange(e.target.value)}
           style={inputStyle}
-        />
-        <input 
-          placeholder="المدن (مفصولة بفاصلة أو نقطة)" 
-          value={tripData.cities} 
-          onChange={e => handleChange('cities', e.target.value)}
-          style={inputStyle}
-        />
+        >
+          <option value="" style={{ color: '#000' }}>— اختر الدولة —</option>
+          {countries.map(c => (
+            <option key={c.id} value={c.name} style={{ color: '#000' }}>{c.name}</option>
+          ))}
+        </select>
+        {countries.length === 0 && (
+          <div style={{ fontSize: '11px', color: '#ffa500' }}>⚠️ لا توجد دول معرّفة — أضفها من الصفحة الرئيسية ← الدول والمدن.</div>
+        )}
+
+        <div>
+          <label style={{ display: 'block', fontSize: '11px', fontWeight: '700', color: 'var(--ne)', marginBottom: '6px' }}>المدن المزارة</label>
+          {selectedCountry && selectedCountry.cities?.length > 0 ? (
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+              {selectedCountry.cities.map(city => {
+                const active = selectedCities.includes(city.name);
+                return (
+                  <button
+                    key={city.id}
+                    type="button"
+                    onClick={() => toggleCity(city.name)}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: '4px',
+                      background: active ? 'rgba(140,198,63,0.2)' : 'var(--bg-card)',
+                      border: `1px solid ${active ? 'var(--g)' : 'var(--bg-card-border)'}`,
+                      color: active ? 'var(--g)' : 'var(--text-muted)',
+                      padding: '6px 12px', borderRadius: '20px', fontSize: '12px', fontWeight: '700'
+                    }}
+                  >
+                    <MapPin size={11} /> {city.name}
+                  </button>
+                );
+              })}
+            </div>
+          ) : (
+            <div style={{ fontSize: '12px', color: 'var(--text-muted-dark)' }}>
+              {tripData.country ? 'لا توجد مدن معرّفة لهذه الدولة بعد.' : 'اختر الدولة أولاً لعرض مدنها.'}
+            </div>
+          )}
+        </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
           <input 
             type="number" 
@@ -156,6 +211,22 @@ export default function TripInfoSection({ tripData, updateTripData, tripName, on
             min={0}
           />
         </div>
+        <label style={{
+          display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px',
+          background: tripData.isHoneymoon ? 'rgba(255,105,180,0.12)' : 'var(--bg-card)',
+          border: `1px solid ${tripData.isHoneymoon ? '#ff69b4' : 'var(--bg-card-border)'}`,
+          borderRadius: '8px', padding: '10px 14px', cursor: 'pointer', transition: 'all 0.2s'
+        }}>
+          <input
+            type="checkbox"
+            checked={!!tripData.isHoneymoon}
+            onChange={e => handleChange('isHoneymoon', e.target.checked)}
+            style={{ width: '16px', height: '16px', accentColor: '#ff69b4', cursor: 'pointer' }}
+          />
+          <span style={{ fontSize: '13px', fontWeight: '700', color: tripData.isHoneymoon ? '#ff69b4' : 'var(--text-main)' }}>
+            💍 عروسين (رحلة عسل)
+          </span>
+        </label>
 
         <h4 style={{ fontSize: '13px', fontWeight: '700', color: 'var(--c)', marginTop: '8px' }}>معلومات التواصل</h4>
         <input 

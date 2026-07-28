@@ -7,7 +7,7 @@ export default function LandmarksBlock({ landmarks, country }) {
   return (
     <>
       <div className="sec-head">
-        <h2>المعالم المميزة في {country || 'الوجهة'}</h2>
+        <h2>المعالم والأماكن في برنامجكم</h2>
         <div className="sec-line"></div>
       </div>
       <div style={{ marginBottom: '40px' }}>

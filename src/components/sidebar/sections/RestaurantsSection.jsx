@@ -1,8 +1,17 @@
 import { v4 as uuidv4 } from 'uuid';
+import { useEffect, useState } from 'react';
 import { Plus, Trash2, MapPin, UploadCloud } from 'lucide-react';
 import { fileToBase64 } from '../../../lib/utils';
+import { db } from '../../../lib/db';
 
 export default function RestaurantsSection({ tripData, updateTripData }) {
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    setCountries(db.getCountries());
+  }, []);
+
+  const tripCities = countries.find(c => c.name === tripData.country)?.cities || [];
   const addCity = () => {
     updateTripData(prev => ({
       ...prev,
@@ -75,14 +84,21 @@ export default function RestaurantsSection({ tripData, updateTripData }) {
           <div key={cityGroup.id} style={{ background: 'var(--bg-card)', padding: '12px', borderRadius: '8px' }}>
             <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
               <MapPin size={18} color="var(--g)" />
-              <input 
-                placeholder="اسم المدينة" 
-                value={cityGroup.city} 
+              <select
+                value={cityGroup.city}
                 onChange={e => updateCity(cityGroup.id, e.target.value)}
                 style={{ ...inputStyle, flex: 1 }}
-              />
+              >
+                <option value="" style={{ color: '#000' }}>— اختر المدينة —</option>
+                {tripCities.map(city => (
+                  <option key={city.id} value={city.name} style={{ color: '#000' }}>{city.name}</option>
+                ))}
+              </select>
               <button onClick={() => removeCity(cityGroup.id)} style={delBtnStyle}><Trash2 size={14} /></button>
             </div>
+            {tripCities.length === 0 && (
+              <div style={{ fontSize: '11px', color: '#ffa500', marginBottom: '10px' }}>⚠️ اختر دولة الرحلة ومدنها أولاً من قسم المعلومات الأساسية.</div>
+            )}
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingRight: '12px', borderRight: '2px solid var(--bg-card-border)' }}>
               {cityGroup.list.map(rest => (

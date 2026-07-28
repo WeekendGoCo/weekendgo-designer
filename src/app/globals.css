@@ -174,128 +174,229 @@ input, textarea, select {
 }
 
 /* ===================================================
-   PRINT / PDF EXPORT — Professional A4 pagination
+   PRINT / PDF EXPORT — A4 Portrait (Desktop Match)
    =================================================== */
 @media print {
-  /* Hide sidebar and UI chrome */
+  /* ── Hide all UI chrome ── */
   .sidebar-container { display: none !important; }
   .designer-layout { display: block !important; }
-  .preview-container-wrapper { display: block !important; overflow: visible !important; height: auto !important; }
-
-  /* Root preview */
+  
+  .preview-container-wrapper {
+    display: block !important;
+    overflow: visible !important;
+    height: auto !important;
+    width: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: var(--n) !important;
+  }
+  
   .preview-container {
-    background: #fff !important;
+    width: 210mm !important;
+    background: var(--n) !important;
+    min-height: auto !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
   .preview-container::before { display: none !important; }
+  
+  .preview-sheets-container {
+    padding: 0 !important;
+    padding-top: 0 !important;
+    margin: 0 !important;
+    gap: 0 !important;
+  }
 
-  /* Page setup */
+  /* ── Page dimensions: A4 portrait ── */
   @page {
     size: A4 portrait;
     margin: 0;
   }
 
-  body {
+  html, body {
+    width: 210mm !important;
+    height: auto !important;
+    background: var(--n) !important;
+    color: var(--text-main) !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
     color-adjust: exact !important;
+    font-family: 'Cairo', 'Alexandria', 'Segoe UI', Tahoma, Arial, sans-serif !important;
   }
 
-  /* Main page wrapper */
+  /* ── Inner page wrapper ── */
   .page {
-    padding: 24px 20px !important;
+    padding: 20mm 15mm !important;
+    width: 210mm !important;
     max-width: 210mm !important;
     margin: 0 auto !important;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
+    background: var(--n) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
-  /* SECTION PAGE BREAKS — each major section starts on new page */
-  .print-page-section {
-    page-break-before: always;
-    break-before: page;
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  /* Cover always starts fresh */
+  /* ── Cover page ── */
   .cover-page {
+    width: 210mm !important;
+    height: 297mm !important;
+    max-width: 210mm !important;
     page-break-after: always !important;
     break-after: page !important;
-    height: 297mm !important;
     overflow: hidden !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background-color: #07101F !important;
+    color: #fff !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
-  /* Day cards stay together */
-  .day-card {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
+  .cover-img-layer,
+  .cover-dark-overlay {
+    position: absolute !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
-  /* Section headings stay with content */
+  .cover-deco-lines {
+    display: block !important;
+  }
+
+  /* ── SECTION PAGE BREAKS — every major section starts on a new page ── */
+  .print-page-section {
+    page-break-before: always !important;
+    break-before: page !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ── Section heading ── */
   .sec-head {
+    display: flex !important;
     page-break-after: avoid !important;
     break-after: avoid !important;
   }
+  .sec-head h2 {
+    font-size: 26px !important;
+    color: var(--text-main) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .sec-line {
+    background: var(--ne) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 
-  /* Glass panels don't break */
+  /* ── Avoid breaking inside individual cards ── */
+  .day-card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    width: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
   .glass-panel {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
     box-shadow: none !important;
     backdrop-filter: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
-  /* Notes sections stay together */
+  /* ── Notes ── */
   .notes-section {
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
 
-  /* Footer always on its own line */
+  /* ── Footer ── */
   .footer-block {
-    page-break-before: auto;
+    page-break-before: auto !important;
     page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
-
-  /* Force colors on print */
-  [data-theme="light"] .cover-page,
-  [data-theme="dark"] .cover-page {
-    background-color: #07101F !important;
-    color: #fff !important;
-  }
-
-  /* Fix sec-head titles — must show in PDF */
-  .sec-head { display: flex !important; }
-  .sec-head h2 {
-    color: #0094D4 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  [data-theme="light"] .sec-head h2 {
-    color: #0094D4 !important;
-  }
-  .sec-line {
-    background: #0094D4 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-
-  /* Force all text colors */
-  .day-label-strip {
-    color: #0094D4 !important;
-    background: rgba(0,148,212,0.12) !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .notes-title {
-    color: #0094D4 !important;
-    border-right-color: #0094D4 !important;
-  }
-  
-  /* Footer section break */
   .footer-block::before { display: none !important; }
   .footer-block > div {
     background: #0A1628 !important;
+    margin-top: 0 !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
+
+  /* Force print-color-adjust on all panels/cards/text */
+  .day-label-strip,
+  .cib-divider,
+  .client-info-box,
+  .badge-pill,
+  .price-main,
+  .city-chip {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-preview-mode .cover-page,
+  .print-preview-mode .print-page-section {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    background: transparent !important;
+  }
+}
+
+/* ===================================================
+   SCREEN STYLING FOR PRINT PREVIEW MODE
+   =================================================== */
+.print-preview-mode .preview-sheets-container {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.print-preview-mode .cover-page {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+}
+
+.print-preview-mode .page {
+  width: 210mm !important;
+  max-width: 210mm !important;
+  padding: 0 !important;
+  background: transparent !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 40px !important;
+}
+
+.print-preview-mode .print-page-section {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--gb);
+  border-radius: 16px;
+  background: var(--bg-card-dark);
+  padding: 24px !important;
+  width: 210mm !important;
+  max-width: 210mm !important;
+  box-sizing: border-box !important;
+}
+
+[data-theme="light"] .print-preview-mode .print-page-section {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+.print-preview-mode .footer-block {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  overflow: hidden;
+  width: 210mm;
+  margin: 0 auto;
 }

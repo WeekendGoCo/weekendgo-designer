@@ -4,6 +4,18 @@ export const CURRENCIES = [
   { code: 'AED', symbol: 'د.إ', label: 'درهم إماراتي' }
 ];
 
+// Internal package tiers for hotel classification, ordered from base to top
+export const HOTEL_TIERS = [
+  { value: 'silver', label: 'VIP سيلفر', order: 1 },
+  { value: 'gold', label: 'VIP جولد', order: 2 },
+  { value: 'platinum', label: 'VIP بلاتينيوم', order: 3 },
+  { value: 'royal', label: 'VIP رويال', order: 4 }
+];
+
+export function getTierLabel(value) {
+  return HOTEL_TIERS.find(t => t.value === value)?.label || value;
+}
+
 export const DAY_NAMES = [
   'الأول', 'الثاني', 'الثالث', 'الرابع', 'الخامس',
   'السادس', 'السابع', 'الثامن', 'التاسع', 'العاشر',
@@ -28,10 +40,11 @@ export const INITIAL_TRIP_STATE = {
   clientPhone: '',
   paxAdults: 2,
   paxChildren: 0,
+  isHoneymoon: false,
   coverImage: '',
-  wa: '',
-  email: '',
-  web: '',
+  wa: '+966 55 330 4883',
+  email: 'info@weekendgo.com.sa',
+  web: 'https://weekendgo.com.sa/',
   countryInfo: {
     description: '',
     capital: '',
@@ -51,6 +64,7 @@ export const INITIAL_TRIP_STATE = {
   ],
   daysList: [],
   hotels: [],
+  tiers: [],
   distances: [],
   flights: [],
   landmarks: [],

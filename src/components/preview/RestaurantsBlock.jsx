@@ -6,7 +6,7 @@ export default function RestaurantsBlock({ restaurants }) {
 
   return (
     <>
-      <div className="sec-head"><h2>المطاعم المقترحة</h2><div className="sec-line"></div></div>
+      <div className="sec-head"><h2>المطاعم التي ستزورونها</h2><div className="sec-line"></div></div>
       <div className="glass-panel" style={{ padding: '24px' }}>
         <style dangerouslySetInnerHTML={{__html: `
           .rest-city-group {
@@ -106,7 +106,7 @@ export default function RestaurantsBlock({ restaurants }) {
             <div className="rest-grid">
               {cityGroup.list.map(rest => (
                 <div key={rest.id} className="rest-card">
-                  {rest.image && <img src={rest.image} className="rest-img" alt={rest.name} loading="lazy" />}
+                  {rest.image && <img src={rest.image} className="rest-img" alt={rest.name} loading="eager" />}
                   <div className="rest-body">
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
                       <div>

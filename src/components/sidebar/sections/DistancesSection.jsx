@@ -1,7 +1,16 @@
 import { v4 as uuidv4 } from 'uuid';
+import { useEffect, useState } from 'react';
 import { Plus, Trash2 } from 'lucide-react';
+import { db } from '../../../lib/db';
 
 export default function DistancesSection({ tripData, updateTripData }) {
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    setCountries(db.getCountries());
+  }, []);
+
+  const tripCities = countries.find(c => c.name === tripData.country)?.cities || [];
   const addDistance = () => {
     updateTripData(prev => ({
       ...prev,
@@ -31,20 +40,31 @@ export default function DistancesSection({ tripData, updateTripData }) {
       </div>
       
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        {tripCities.length === 0 && (
+          <div style={{ fontSize: '11px', color: '#ffa500', marginBottom: '10px' }}>⚠️ اختر دولة الرحلة ومدنها أولاً من قسم المعلومات الأساسية.</div>
+        )}
         {tripData.distances?.map((dist) => (
           <div key={dist.id} style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-            <input 
-              placeholder="مدينة 1" 
-              value={dist.city1} 
+            <select
+              value={dist.city1}
               onChange={e => updateDistance(dist.id, 'city1', e.target.value)}
               style={inputStyle}
-            />
-            <input 
-              placeholder="مدينة 2" 
-              value={dist.city2} 
+            >
+              <option value="" style={{ color: '#000' }}>— مدينة 1 —</option>
+              {tripCities.map(city => (
+                <option key={city.id} value={city.name} style={{ color: '#000' }}>{city.name}</option>
+              ))}
+            </select>
+            <select
+              value={dist.city2}
               onChange={e => updateDistance(dist.id, 'city2', e.target.value)}
               style={inputStyle}
-            />
+            >
+              <option value="" style={{ color: '#000' }}>— مدينة 2 —</option>
+              {tripCities.map(city => (
+                <option key={city.id} value={city.name} style={{ color: '#000' }}>{city.name}</option>
+              ))}
+            </select>
             <input 
               placeholder="المسافة بالـ كم" 
               type="number"

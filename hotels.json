@@ -1,0 +1,71 @@
+[
+  {
+    "id": "hg-istanbul",
+    "countryId": "1783996683895",
+    "countryName": "تركيا",
+    "city": "اسطنبول",
+    "list": [
+      { "id": "h-ist-1", "name": "Green Anka Hotel", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Green+Anka+Hotel+Istanbul", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Green+Anka+Hotel+Istanbul", "image": "", "tier": "silver" },
+      { "id": "h-ist-2", "name": "Ibis Styles Istanbul Merter", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=Ibis+Styles+Istanbul+Merter", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Ibis+Styles+Istanbul+Merter", "image": "", "tier": "silver" },
+      { "id": "h-ist-3", "name": "Akgun Istanbul Hotel", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=Akgun+Istanbul+Hotel", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Akgun+Istanbul+Hotel", "image": "", "tier": "silver" },
+      { "id": "h-ist-4", "name": "Golden Tulip Istanbul Bayrampasa", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=Golden+Tulip+Istanbul+Bayrampasa", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Golden+Tulip+Istanbul+Bayrampasa", "image": "", "tier": "gold" },
+      { "id": "h-ist-5", "name": "Wish More Hotel Şişli", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=Wish+More+Hotel+Sisli+Istanbul", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Wish+More+Hotel+Sisli+Istanbul", "image": "", "tier": "platinum" },
+      { "id": "h-ist-6", "name": "DoubleTree By Hilton Istanbul - Moda", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=DoubleTree+By+Hilton+Istanbul+Moda", "hotelUrl": "https://www.booking.com/searchresults.html?ss=DoubleTree+By+Hilton+Istanbul+Moda", "image": "", "tier": "platinum" },
+      { "id": "h-ist-7", "name": "Mövenpick Hotel Istanbul Bosphorus", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=Movenpick+Hotel+Istanbul+Bosphorus", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Movenpick+Hotel+Istanbul+Bosphorus", "image": "", "tier": "royal" }
+    ]
+  },
+  {
+    "id": "hg-trabzon",
+    "countryId": "1783996683895",
+    "countryName": "تركيا",
+    "city": "طرابزون",
+    "list": [
+      { "id": "h-trb-1", "name": "Marina Hotel (Green Suite & Residence)", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Marina+Green+Suite+%26+Residence+Trabzon", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Marina+Green+Suite+Residence+Trabzon", "image": "", "tier": "silver" },
+      { "id": "h-trb-2", "name": "Sumela Park Hotel", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Sumela+Park+Hotel+Trabzon", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Sumela+Park+Hotel+Trabzon", "image": "", "tier": "silver" },
+      { "id": "h-trb-3", "name": "Hotel Yaman", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Hotel+Yaman+Trabzon", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Hotel+Yaman+Trabzon", "image": "", "tier": "silver" },
+      { "id": "h-trb-4", "name": "Green Palace Suite Hotel", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Green+Palace+Suite+Hotel+Trabzon", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Green+Palace+Suite+Hotel+Trabzon", "image": "", "tier": "gold" },
+      { "id": "h-trb-5", "name": "Panagia Premier Trabzon", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=Panagia+Premier+Trabzon", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Panagia+Premier+Trabzon", "image": "", "tier": "platinum" },
+      { "id": "h-trb-6", "name": "Movenpick Hotel Trabzon", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Movenpick+Hotel+Trabzon", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Movenpick+Hotel+Trabzon", "image": "", "tier": "platinum" },
+      { "id": "h-trb-7", "name": "Novotel Trabzon", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=Novotel+Trabzon", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Novotel+Trabzon", "image": "", "tier": "platinum" },
+      { "id": "h-trb-8", "name": "Ramada Plaza Hotel & Spa", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=Ramada+Plaza+Hotel+%26+Spa+Trabzon", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Ramada+Plaza+Hotel+Spa+Trabzon", "image": "", "tier": "royal" }
+    ]
+  },
+  {
+    "id": "hg-uzungol",
+    "countryId": "1783996683895",
+    "countryName": "تركيا",
+    "city": "أوزنجول",
+    "list": [
+      { "id": "h-uzn-1", "name": "Inanlar Deluxe Hotel & Bungalow", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Inanlar+Deluxe+Hotel+%26+Bungalow+Uzungol", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Inanlar+Deluxe+Hotel+Bungalow+Uzungol", "image": "", "tier": "gold" },
+      { "id": "h-uzn-2", "name": "Royal Uzungol Hotel & Spa", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Royal+Uzungol+Hotel+%26+Spa", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Royal+Uzungol+Hotel+Spa", "image": "", "tier": "royal" }
+    ]
+  },
+  {
+    "id": "hg-ayder",
+    "countryId": "1783996683895",
+    "countryName": "تركيا",
+    "city": "آيدر",
+    "list": [
+      { "id": "h-ayd-1", "name": "Didi Butik Otel", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Didi+Butik+Otel+Rize", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Didi+Butik+Otel+Rize", "image": "", "tier": "silver" },
+      { "id": "h-ayd-2", "name": "Kiyi Bungalov", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Kiyi+Bungalov+Ayder", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Kiyi+Bungalov+Ayder", "image": "", "tier": "silver" },
+      { "id": "h-ayd-3", "name": "Natural Bungalov", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Natural+Bungalov+Ayder", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Natural+Bungalov+Ayder", "image": "", "tier": "gold" },
+      { "id": "h-ayd-4", "name": "Parpalis Bungalov", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Parpalis+Bungalov+Ardesen", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Parpalis+Bungalov+Ardesen", "image": "", "tier": "platinum" },
+      { "id": "h-ayd-5", "name": "Captain suit bungalov", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Captain+suit+bungalov+Ayder", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Captain+suit+bungalov+Ayder", "image": "", "tier": "platinum" },
+      { "id": "h-ayd-6", "name": "Hoşdere Bungalov", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Hosdere+Bungalov+Camlihemsin", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Hosdere+Bungalov+Camlihemsin", "image": "", "tier": "royal" }
+    ]
+  },
+  {
+    "id": "hg-batumi",
+    "countryId": "1783996820001",
+    "countryName": "جورجيا",
+    "city": "باتومي",
+    "list": [
+      { "id": "h-btm-1", "name": "Hotel Black Sea", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Hotel+Black+Sea+Batumi", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Hotel+Black+Sea+Batumi", "image": "", "tier": "silver" },
+      { "id": "h-btm-2", "name": "Batumi View Luxury", "stars": 4, "location": "https://www.google.com/maps/search/?api=1&query=Batumi+View+Luxury", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Batumi+View+Luxury+Batumi", "image": "", "tier": "silver" },
+      { "id": "h-btm-3", "name": "Best Western Premier Batumi", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=Best+Western+Premier+Batumi", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Best+Western+Premier+Batumi", "image": "", "tier": "gold" },
+      { "id": "h-btm-4", "name": "JRW Welmond Hotel & Casino", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=JRW+Welmond+Hotel+Batumi", "hotelUrl": "https://www.booking.com/searchresults.html?ss=JRW+Welmond+Hotel+Batumi", "image": "", "tier": "platinum" },
+      { "id": "h-btm-5", "name": "Sheraton Batumi Hotel", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=Sheraton+Batumi+Hotel", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Sheraton+Batumi+Hotel", "image": "", "tier": "platinum" },
+      { "id": "h-btm-6", "name": "Hilton Batumi", "stars": 5, "location": "https://www.google.com/maps/search/?api=1&query=Hilton+Batumi", "hotelUrl": "https://www.booking.com/searchresults.html?ss=Hilton+Batumi", "image": "", "tier": "royal" }
+    ]
+  }
+]

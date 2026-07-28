@@ -21,7 +21,7 @@ export default function FooterBlock({ tripData }) {
         )}
         {tripData.web && (
           <a href={tripData.web} target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#fff', fontSize: '15px', fontWeight: '700', textDecoration: 'none', direction: 'ltr' }}>
-            <Globe size={20} color="var(--ne)" /> <span style={{ paddingTop: '2px' }}>{tripData.web.replace(/^https?:\/\//i, '')}</span>
+            <Globe size={20} color="var(--ne)" /> <span style={{ paddingTop: '2px' }}>{tripData.web.replace(/^https?:\/\//i, '').replace(/\/$/, '')}</span>
           </a>
         )}
       </div>

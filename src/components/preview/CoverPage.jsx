@@ -107,7 +107,7 @@ export default function CoverPage({ tripData }) {
           z-index: 20;
         }
         .cover-logo img {
-          height: 130px;
+          height: 169px;
           width: auto;
           object-fit: contain;
           filter: drop-shadow(0 3px 18px rgba(0,0,0,0.55));
@@ -115,67 +115,68 @@ export default function CoverPage({ tripData }) {
           print-color-adjust: exact;
         }
 
-        /* ─── CLIENT INFO CARD top-left (original style) ─── */
+        /* ─── CLIENT INFO CARD top-left (scaled up 150%) ─── */
         .client-info-box {
           position: absolute;
           top: 26px;
           left: 26px;
           z-index: 20;
-          background: rgba(7,16,31,0.7);
-          backdrop-filter: blur(16px);
-          border: 1px solid rgba(0,229,255,0.25);
-          border-radius: 12px;
-          padding: 12px 16px;
-          max-width: 210px;
+          background: rgba(7,16,31,0.75);
+          backdrop-filter: blur(18px);
+          border: 1px solid rgba(0,229,255,0.3);
+          border-radius: 16px;
+          padding: 18px 22px;
+          width: 360px;
+          max-width: 360px;
         }
         .client-info-box .cib-headline {
-          font-size: 10px;
+          font-size: 12px;
           color: rgba(255,255,255,0.5);
           font-weight: 500;
           letter-spacing: 1.2px;
-          margin-bottom: 6px;
+          margin-bottom: 8px;
           line-height: 1.5;
         }
         .client-info-box .cib-name {
-          font-size: 15px;
+          font-size: 22px;
           color: #00E5FF;
           font-weight: 800;
           line-height: 1.3;
-          margin-bottom: 8px;
+          margin-bottom: 10px;
         }
         .client-info-box .cib-divider {
           width: 100%;
           height: 1px;
           background: rgba(255,255,255,0.12);
-          margin-bottom: 8px;
+          margin-bottom: 10px;
         }
         .client-info-box .cib-row {
-          font-size: 11px;
+          font-size: 13px;
           color: rgba(255,255,255,0.65);
           font-weight: 500;
           line-height: 1.7;
           display: flex;
           flex-direction: column;
-          gap: 2px;
+          gap: 4px;
         }
         .client-info-box .cib-date-label {
-          font-size: 9px;
+          font-size: 10px;
           color: rgba(255,255,255,0.4);
           font-weight: 600;
           letter-spacing: 1px;
           text-transform: uppercase;
         }
         .client-info-box .cib-date-val {
-          font-size: 11px;
-          color: rgba(255,255,255,0.8);
-          font-weight: 600;
+          font-size: 14px;
+          color: rgba(255,255,255,0.85);
+          font-weight: 700;
         }
         .client-info-box .cib-pax {
-          font-size: 11px;
-          color: rgba(255,255,255,0.65);
+          font-size: 14px;
+          color: rgba(255,255,255,0.7);
         }
 
-        /* ─── MAIN CENTER ─── */
+        /* ─── MAIN CENTER (scaled up 170%) ─── */
         .cover-overlay {
           flex: 1;
           display: flex;
@@ -184,6 +185,7 @@ export default function CoverPage({ tripData }) {
           justify-content: center;
           padding: 155px 40px 90px;
           text-align: center;
+          transform: translateY(-80px);
         }
 
         .badge-pill {
@@ -194,39 +196,39 @@ export default function CoverPage({ tripData }) {
           border: 1.5px solid rgba(140,198,63,0.55);
           color: #A6CE39;
           border-radius: 100px;
-          padding: 6px 22px;
-          font-size: 12px;
+          padding: 8px 28px;
+          font-size: 15px;
           font-weight: 700;
-          margin-bottom: 16px;
+          margin-bottom: 20px;
           letter-spacing: 0.5px;
         }
 
-        /* Country name — always white, clean shadow only for depth */
+        /* Country name — scaled up */
         .cover-country {
           font-family: 'Alexandria', 'Cairo', sans-serif;
-          font-size: 86px;
+          font-size: 120px;
           font-weight: 900;
           color: #ffffff !important;
-          letter-spacing: -2px;
+          letter-spacing: -3px;
           line-height: 1;
-          margin-bottom: 18px;
-          text-shadow: 0 3px 24px rgba(0,0,0,0.9);
+          margin-bottom: 22px;
+          text-shadow: 0 3px 32px rgba(0,0,0,0.9);
         }
 
-        /* City chips — horizontal separators style */
+        /* City chips — larger */
         .city-chips {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
           align-items: center;
           gap: 0;
-          margin-bottom: 20px;
+          margin-bottom: 24px;
         }
         .city-chip {
-          color: rgba(255,255,255,0.92);
-          font-size: 15px;
+          color: rgba(255,255,255,0.95);
+          font-size: 22px;
           font-weight: 700;
-          padding: 0 14px;
+          padding: 0 18px;
           position: relative;
         }
         .city-chip:not(:last-child)::after {
@@ -236,29 +238,29 @@ export default function CoverPage({ tripData }) {
           top: 50%;
           transform: translateY(-50%);
           color: var(--ne, #00E5FF);
-          font-size: 18px;
+          font-size: 26px;
         }
 
-        /* Duration — clean text line, no boxes */
+        /* Duration — larger */
         .dur-line {
-          font-size: 18px;
+          font-size: 22px;
           font-weight: 700;
-          color: rgba(255,255,255,0.75);
+          color: rgba(255,255,255,0.8);
           letter-spacing: 1px;
-          margin-bottom: 22px;
+          margin-bottom: 26px;
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 12px;
+          gap: 14px;
         }
         .dur-nights-val {
-          font-size: 28px;
+          font-size: 48px;
           font-weight: 900;
           color: #00E5FF;
           letter-spacing: -1px;
         }
         .dur-days-val {
-          font-size: 28px;
+          font-size: 48px;
           font-weight: 900;
           color: #A6CE39;
           letter-spacing: -1px;
@@ -266,7 +268,7 @@ export default function CoverPage({ tripData }) {
         .dur-sep {
           color: rgba(255,255,255,0.3);
           font-weight: 300;
-          font-size: 22px;
+          font-size: 30px;
         }
 
         /* Price — clean and elegant, no glow */
@@ -300,8 +302,41 @@ export default function CoverPage({ tripData }) {
           letter-spacing: 0;
         }
 
-        /* ─── CONTACT pill bottom-left ─── */
+        /* ─── WhatsApp CONTACT pill bottom-right ─── */
         .cover-contact {
+          position: absolute;
+          bottom: 36px;
+          right: 28px;
+          z-index: 20;
+          background: rgba(7,16,31,0.62);
+          backdrop-filter: blur(14px);
+          border: 1px solid rgba(255,255,255,0.18);
+          border-radius: 100px;
+          padding: 13px 28px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        }
+        .cover-contact-label {
+          font-size: 14px;
+          color: rgba(255,255,255,0.65);
+          font-weight: 600;
+          white-space: nowrap;
+        }
+        .cover-contact-link {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: #fff;
+          text-decoration: none;
+          font-weight: 900;
+          font-size: 26px;
+          direction: ltr;
+        }
+        .cover-contact-link svg { color: #25D366; flex-shrink: 0; }
+
+        /* ─── EMAIL / WEB pill bottom-left — mirrors WhatsApp pill, half size ─── */
+        .cover-contact-right {
           position: absolute;
           bottom: 36px;
           left: 28px;
@@ -310,28 +345,36 @@ export default function CoverPage({ tripData }) {
           backdrop-filter: blur(14px);
           border: 1px solid rgba(255,255,255,0.18);
           border-radius: 100px;
-          padding: 10px 22px;
+          padding: 6.5px 14px;
           display: flex;
           align-items: center;
-          gap: 14px;
+          gap: 7px;
         }
-        .cover-contact-label {
-          font-size: 13px;
+        .cover-contact-right-label {
+          font-size: 7px;
           color: rgba(255,255,255,0.65);
           font-weight: 600;
           white-space: nowrap;
         }
-        .cover-contact-link {
+        .cover-contact-right-links {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 2px;
+          direction: ltr;
+          text-align: left;
+        }
+        .cover-contact-right-item {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 5px;
           color: #fff;
           text-decoration: none;
-          font-weight: 800;
-          font-size: 18px;
+          font-weight: 900;
+          font-size: 13px;
           direction: ltr;
         }
-        .cover-contact-link svg { color: #25D366; flex-shrink: 0; }
+        .cover-contact-right-item svg { color: var(--ne); flex-shrink: 0; }
 
         /* Force identical look in both modes */
         [data-theme="light"] .cover-page { color: #fff !important; }
@@ -395,7 +438,7 @@ export default function CoverPage({ tripData }) {
 
       {/* ── LOGO ── */}
       <div className="cover-logo" style={{ position: 'absolute', top: 26, right: 26, zIndex: 20 }}>
-        <img src="/logo.png" alt="ويكند جو" style={{ height: 130, width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 3px 18px rgba(0,0,0,0.55))' }} />
+        <img src="/logo.png" alt="ويكند جو" style={{ height: 169, width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 3px 18px rgba(0,0,0,0.55))' }} />
       </div>
 
       {/* ── CLIENT INFO BOX (original compact style) ── */}
@@ -415,7 +458,9 @@ export default function CoverPage({ tripData }) {
           <div className="cib-row">
             {tripData.paxAdults > 0 && (
               <span className="cib-pax">
-                باكج سياحي: {tripData.paxAdults} بالغين{tripData.paxChildren > 0 ? `، ${tripData.paxChildren} أطفال` : ''}
+                {tripData.isHoneymoon
+                  ? '💍 رحلة عسل عروسين'
+                  : `باكج سياحي: ${tripData.paxAdults} بالغين${tripData.paxChildren > 0 ? `، ${tripData.paxChildren} أطفال` : ''}`}
               </span>
             )}
             {tripData.tripStartDate && (
@@ -475,7 +520,7 @@ export default function CoverPage({ tripData }) {
 
       {/* ── WHATSAPP CONTACT PILL ── */}
       {tripData.clientPhone && (
-        <div className="cover-contact" style={{ position: 'absolute', bottom: 36, left: 28, zIndex: 20 }}>
+        <div className="cover-contact" style={{ position: 'absolute', bottom: 36, right: 28, zIndex: 20 }}>
           <span className="cover-contact-label">فريقنا بانتظاركم</span>
           <a
             href={tripData.wa || `https://wa.me/${tripData.clientPhone.replace(/[^0-9]/g, '')}`}
@@ -488,6 +533,32 @@ export default function CoverPage({ tripData }) {
             </svg>
             <span>{tripData.clientPhone}</span>
           </a>
+        </div>
+      )}
+
+      {/* ── EMAIL / WEB CONTACT PILL (mirrors WhatsApp pill, opposite side, half size) ── */}
+      {(tripData.email || tripData.web) && (
+        <div className="cover-contact-right" style={{ position: 'absolute', bottom: 36, left: 28, zIndex: 20 }}>
+          <div className="cover-contact-right-links">
+            {tripData.email && (
+              <a href={`mailto:${tripData.email}`} className="cover-contact-right-item">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m22 7-10 5L2 7" />
+                </svg>
+                <span>{tripData.email}</span>
+              </a>
+            )}
+            {tripData.web && (
+              <a href={tripData.web} target="_blank" rel="noreferrer" className="cover-contact-right-item">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" />
+                </svg>
+                <span>{tripData.web.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
+              </a>
+            )}
+          </div>
         </div>
       )}
     </div>

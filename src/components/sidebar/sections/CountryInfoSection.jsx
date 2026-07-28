@@ -21,48 +21,40 @@ export default function CountryInfoSection({ tripData, updateTripData }) {
           onChange={e => handleChange('description', e.target.value)}
           style={{ ...inputStyle, minHeight: '80px', resize: 'vertical' }}
         />
-        <input 
-          placeholder="العاصمة" 
-          value={countryInfo.capital} 
-          onChange={e => handleChange('capital', e.target.value)}
-          style={inputStyle}
-        />
-        <input 
-          placeholder="المساحة" 
-          value={countryInfo.area} 
-          onChange={e => handleChange('area', e.target.value)}
-          style={inputStyle}
-        />
-        <input 
-          placeholder="عدد السكان" 
-          value={countryInfo.population} 
-          onChange={e => handleChange('population', e.target.value)}
-          style={inputStyle}
-        />
-        <input 
-          placeholder="اللغة الرسمية" 
-          value={countryInfo.language} 
-          onChange={e => handleChange('language', e.target.value)}
-          style={inputStyle}
-        />
-        <input 
-          placeholder="العملة" 
-          value={countryInfo.currencyName} 
-          onChange={e => handleChange('currencyName', e.target.value)}
-          style={inputStyle}
-        />
-        <input 
-          placeholder="نظام الحكم" 
-          value={countryInfo.government} 
-          onChange={e => handleChange('government', e.target.value)}
-          style={inputStyle}
-        />
-        <textarea 
-          placeholder="المناخ (ثلاث أسطر تقريبا)..." 
-          value={countryInfo.climate} 
-          onChange={e => handleChange('climate', e.target.value)}
-          style={{ ...inputStyle, minHeight: '60px', resize: 'vertical' }}
-        />
+
+        {/* Labeled fields */}
+        {[
+          { label: 'العاصمة', field: 'capital', placeholder: 'مثال: الرياض' },
+          { label: 'المساحة', field: 'area', placeholder: 'مثال: 2.1 مليون كم²' },
+          { label: 'عدد السكان', field: 'population', placeholder: 'مثال: 35 مليون' },
+          { label: 'اللغة الرسمية', field: 'language', placeholder: 'مثال: العربية' },
+          { label: 'العملة', field: 'currencyName', placeholder: 'مثال: الريال السعودي' },
+          { label: 'نظام الحكم', field: 'government', placeholder: 'مثال: ملكي' },
+        ].map(({ label, field, placeholder }) => (
+          <div key={field}>
+            <label style={{ display: 'block', fontSize: '11px', fontWeight: '700', color: 'var(--ne)', marginBottom: '4px', letterSpacing: '0.5px' }}>
+              {label}
+            </label>
+            <input 
+              placeholder={placeholder}
+              value={countryInfo[field] || ''} 
+              onChange={e => handleChange(field, e.target.value)}
+              style={inputStyle}
+            />
+          </div>
+        ))}
+
+        <div>
+          <label style={{ display: 'block', fontSize: '11px', fontWeight: '700', color: 'var(--ne)', marginBottom: '4px', letterSpacing: '0.5px' }}>
+            المناخ
+          </label>
+          <textarea 
+            placeholder="المناخ (ثلاث أسطر تقريبا)..." 
+            value={countryInfo.climate} 
+            onChange={e => handleChange('climate', e.target.value)}
+            style={{ ...inputStyle, minHeight: '60px', resize: 'vertical' }}
+          />
+        </div>
       </div>
     </div>
   );
