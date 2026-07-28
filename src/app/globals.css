@@ -428,7 +428,6 @@ input, textarea, select {
 @media (max-width: 900px) {
   body {
     font-size: 13px;
-    overflow-x: hidden;
   }
 
   .responsive-designer-container {
@@ -452,16 +451,6 @@ input, textarea, select {
     max-width: 100% !important;
     overflow-x: auto !important;
     padding: 10px 5px !important;
-  }
-
-  .print-preview-mode .preview-sheets-container,
-  .print-preview-mode .page,
-  .print-preview-mode .print-page-section,
-  .print-preview-mode .footer-block {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 12px !important;
-    box-sizing: border-box !important;
   }
 
   /* Responsive grids & layouts */
@@ -494,6 +483,23 @@ input, textarea, select {
     display: block;
     overflow-x: auto;
     white-space: nowrap;
+  }
+
+  .print-title-hide-mobile {
+    display: none !important;
+  }
+
+  .print-scale-viewport {
+    padding: 10px 0 !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Keep A4 pages exact proportions on mobile via responsive scale wrapper */
+  .print-preview-mode .preview-sheets-container {
+    transform-origin: top center;
+    max-width: 210mm !important;
+    width: 210mm !important;
   }
 }
 

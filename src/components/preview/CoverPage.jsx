@@ -30,7 +30,7 @@ export default function CoverPage({ tripData }) {
   const returnDayName = getArabicDayName(tripData.tripEndDate);
 
   return (
-    <div className="cover-page page-break-after mobile-pdf-page">
+    <div className="cover-page page-break-after">
       <style dangerouslySetInnerHTML={{__html: `
         /* ============================================================
            COVER PAGE — A4 Portrait | Dark Cinema | Print-safe
@@ -127,21 +127,7 @@ export default function CoverPage({ tripData }) {
           border-radius: 16px;
           padding: 18px 22px;
           width: 360px;
-          max-width: calc(100% - 52px);
-        }
-        @media (max-width: 768px) {
-          .client-info-box {
-            position: relative;
-            top: 0;
-            left: 0;
-            margin: 180px auto 20px;
-            width: calc(100% - 32px);
-            max-width: 100%;
-          }
-          .cover-overlay {
-            padding: 20px 16px 40px !important;
-            transform: none !important;
-          }
+          max-width: 360px;
         }
         .client-info-box .cib-headline {
           font-size: 12px;
@@ -217,18 +203,16 @@ export default function CoverPage({ tripData }) {
           letter-spacing: 0.5px;
         }
 
-        /* Country name — scaled up with mobile clamp */
+        /* Country name — scaled up */
         .cover-country {
           font-family: 'Alexandria', 'Cairo', sans-serif;
-          font-size: clamp(38px, 12vw, 120px);
+          font-size: 120px;
           font-weight: 900;
           color: #ffffff !important;
-          letter-spacing: -2px;
-          line-height: 1.1;
+          letter-spacing: -3px;
+          line-height: 1;
           margin-bottom: 22px;
           text-shadow: 0 3px 32px rgba(0,0,0,0.9);
-          word-break: break-word;
-          max-width: 100%;
         }
 
         /* City chips — larger */

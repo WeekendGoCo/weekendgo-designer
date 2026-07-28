@@ -63,89 +63,62 @@ function PrintPreviewContent() {
     <div className="print-preview-mode" data-theme={tripData.theme || 'dark'} style={{ minHeight: '100vh', background: 'var(--n)', paddingBottom: '60px' }}>
       
       {/* Floating Control Panel - Hidden in Print */}
-      <div className="no-print" style={{
+      <div className="no-print print-toolbar-responsive" style={{
         position: 'sticky',
         top: 0,
         zIndex: 1000,
-        background: 'rgba(7, 16, 31, 0.85)',
+        background: 'rgba(7, 16, 31, 0.92)',
         backdropFilter: 'blur(12px)',
         borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-        padding: '12px 24px',
+        padding: '10px 16px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: '10px',
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <button 
             onClick={() => router.push(`/designer?id=${trip.id}`)}
             style={{ 
               color: '#fff', 
               background: 'rgba(255, 255, 255, 0.1)', 
               border: '1px solid rgba(255,255,255,0.15)',
-              padding: '8px 16px', 
+              padding: '6px 12px', 
               borderRadius: '8px', 
               display: 'flex', 
               alignItems: 'center', 
-              gap: '8px',
-              fontSize: '14px',
+              gap: '6px',
+              fontSize: '13px',
               fontWeight: '600'
             }}
           >
-            <ArrowRight size={16} /> العودة للمصمم
+            <ArrowRight size={16} /> العودة
           </button>
-          <span style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '13px' }}>
-            معاينة قبل الطباعة: <strong style={{ color: '#fff' }}>{trip.name}</strong>
+          <span className="print-title-hide-mobile" style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '13px' }}>
+            معاينة: <strong style={{ color: '#fff' }}>{trip.name}</strong>
           </span>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          {/* Theme switcher directly in preview */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           <button
             onClick={handleToggleTheme}
             style={{
               background: 'rgba(255, 255, 255, 0.1)',
               border: '1px solid rgba(255, 255, 255, 0.15)',
               color: '#fff',
-              padding: '8px 16px',
+              padding: '6px 12px',
               borderRadius: '8px',
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              fontSize: '13px',
+              fontSize: '12px',
               fontWeight: '600'
             }}
           >
             {tripData.theme === 'light' ? <Moon size={14} /> : <Sun size={14} />}
-            {tripData.theme === 'light' ? 'تحويل للداكن' : 'تحويل للفاتح'}
-          </button>
-
-          <button 
-            onClick={async () => {
-              try {
-                const { exportTripToPDF } = await import('../../lib/pdfExporter');
-                const countryStr = tripData.country || 'وجهة';
-                const clientStr = tripData.clientName || 'عميل';
-                await exportTripToPDF('print-sheets-container', `${countryStr}_${clientStr}.pdf`);
-              } catch (e) {
-                alert('جاري البدء بالطباعة المباشرة...');
-                handlePrint();
-              }
-            }}
-            style={{ 
-              background: 'var(--g, #39FF14)', 
-              color: '#07101F', 
-              padding: '8px 18px', 
-              borderRadius: '8px', 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '8px',
-              fontSize: '14px',
-              fontWeight: '800',
-              boxShadow: '0 0 12px rgba(57, 255, 20, 0.4)'
-            }}
-          >
-            تحميل PDF مباشرة
+            {tripData.theme === 'light' ? 'داكن' : 'فاتح'}
           </button>
 
           <button 
@@ -153,24 +126,26 @@ function PrintPreviewContent() {
             style={{ 
               background: 'var(--b, #0094D4)', 
               color: '#fff', 
-              padding: '8px 20px', 
+              padding: '6px 14px', 
               borderRadius: '8px', 
               display: 'flex', 
               alignItems: 'center', 
-              gap: '8px',
-              fontSize: '14px',
+              gap: '6px',
+              fontSize: '13px',
               fontWeight: '700',
               boxShadow: '0 0 12px rgba(0, 148, 212, 0.4)'
             }}
           >
-            <Printer size={18} /> طباعة النظام
+            <Printer size={16} /> طباعة / تصدير PDF
           </button>
         </div>
       </div>
 
-      {/* Actual page preview structure */}
-      <div className="preview-sheets-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '40px', paddingTop: '40px' }}>
-        <PreviewShell tripData={tripData} />
+      {/* Actual page preview structure with scale wrapper for mobile */}
+      <div className="print-scale-viewport" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', overflowX: 'auto', padding: '20px 0' }}>
+        <div className="preview-sheets-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '40px' }}>
+          <PreviewShell tripData={tripData} />
+        </div>
       </div>
 
     </div>
