@@ -256,10 +256,10 @@ export default function Home() {
   }
 
   return (
-    <div style={{ padding: '40px', maxWidth: '1100px', margin: '0 auto' }}>
+    <div className="home-container" style={{ padding: '40px', maxWidth: '1100px', margin: '0 auto' }}>
       
       {/* App Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
+      <div className="home-header-responsive" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px', flexWrap: 'wrap', gap: '16px' }}>
         <div>
           <h1 style={{ fontSize: '32px', fontWeight: '900', color: 'var(--ne)', textShadow: 'var(--gb2)' }}>WeekendGo Designer</h1>
           <p style={{ fontSize: '14px', color: 'var(--text-muted)', marginTop: '4px' }}>لوحة التحكم وإدارة الرحلات والفنادق</p>
@@ -281,7 +281,7 @@ export default function Home() {
       </div>
 
       {/* Tabs Menu */}
-      <div style={{ display: 'flex', gap: '12px', borderBottom: '1px solid var(--gb)', marginBottom: '32px', paddingBottom: '12px' }}>
+      <div className="home-tabs-responsive" style={{ display: 'flex', gap: '12px', borderBottom: '1px solid var(--gb)', marginBottom: '32px', paddingBottom: '12px', overflowX: 'auto', flexWrap: 'nowrap' }}>
         <button
           onClick={() => setActiveTab('packages')}
           style={{
@@ -294,7 +294,9 @@ export default function Home() {
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            fontSize: '14px'
+            fontSize: '14px',
+            whiteSpace: 'nowrap',
+            flexShrink: 0
           }}
         >
           <FileText size={18} />
@@ -312,7 +314,9 @@ export default function Home() {
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            fontSize: '14px'
+            fontSize: '14px',
+            whiteSpace: 'nowrap',
+            flexShrink: 0
           }}
         >
           <Hotel size={18} />
@@ -330,7 +334,9 @@ export default function Home() {
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
-            fontSize: '14px'
+            fontSize: '14px',
+            whiteSpace: 'nowrap',
+            flexShrink: 0
           }}
         >
           <Globe size={18} />

@@ -469,6 +469,26 @@ input, textarea, select {
     grid-template-columns: 1fr !important;
   }
 
+  .home-container {
+    padding: 16px 12px !important;
+  }
+
+  .home-header-responsive h1 {
+    font-size: 24px !important;
+  }
+
+  .home-tabs-responsive {
+    gap: 6px !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 20px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .home-tabs-responsive button {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+
   /* Table responsiveness */
   table {
     display: block;
