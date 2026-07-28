@@ -400,3 +400,35 @@ input, textarea, select {
   width: 210mm;
   margin: 0 auto;
 }
+
+/* ===================================================
+   RESPONSIVE MOBILE ENHANCEMENTS
+   =================================================== */
+@media (max-width: 768px) {
+  body {
+    font-size: 13px;
+  }
+
+  .print-preview-mode .preview-sheets-container,
+  .print-preview-mode .page,
+  .print-preview-mode .print-page-section,
+  .print-preview-mode .footer-block {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px !important;
+    overflow-x: hidden;
+  }
+
+  /* Responsive grids & layouts */
+  .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Table responsiveness */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
