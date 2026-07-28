@@ -71,9 +71,9 @@ function DesignerContent() {
   }
 
   return (
-    <div className="designer-layout" data-theme={tripData.theme || 'dark'} style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+    <div className="designer-layout responsive-designer-container" data-theme={tripData.theme || 'dark'}>
       {/* Sidebar - Control Panel */}
-      <div className="sidebar-container" style={{ width: '400px', flexShrink: 0, borderLeft: '1px solid var(--gb)', background: 'var(--n)', overflowY: 'auto' }}>
+      <div className="sidebar-container responsive-sidebar">
         <SidebarShell
           tripData={tripData}
           updateTripData={handleUpdate}
@@ -85,7 +85,7 @@ function DesignerContent() {
       </div>
 
       {/* Preview Area */}
-      <div className="preview-container-wrapper" style={{ flex: 1, background: 'var(--n)', overflowY: 'auto', position: 'relative' }}>
+      <div className="preview-container-wrapper responsive-preview">
         <PreviewShell tripData={tripData} />
       </div>
     </div>
