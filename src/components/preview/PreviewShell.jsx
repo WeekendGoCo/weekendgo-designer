@@ -41,7 +41,7 @@ function DayCard({ day, index, isFirst }) {
         </div>
       )}
 
-      <div className="day-page">
+      <div className="day-page mobile-pdf-page">
         <div className="day-label-strip">
           <div className="day-num-badge">{String(index + 1).padStart(2, '0')}</div>
           <span>{dayLabel}</span>
@@ -94,7 +94,7 @@ export default function PreviewShell({ tripData }) {
   const hasExtraCosts = tripData.extraCosts?.length > 0;
 
   return (
-    <div className="preview-container" style={{ position: 'relative', zIndex: 1 }}>
+    <div id="print-sheets-container" className="preview-container" style={{ position: 'relative', zIndex: 1 }}>
       <style dangerouslySetInnerHTML={{__html: `
         .preview-container { background: var(--n); min-height: 100vh; }
         .page {
@@ -212,7 +212,7 @@ export default function PreviewShell({ tripData }) {
 
         {/* Distances & Flights */}
         {hasDistOrFlights && (
-          <div className="print-page-section">
+          <div className="print-page-section mobile-pdf-page">
             {tripData.distances?.length > 0 && <DistancesBlock distances={tripData.distances} />}
             {tripData.flights?.length > 0 && <FlightsBlock flights={tripData.flights} />}
           </div>
@@ -220,13 +220,13 @@ export default function PreviewShell({ tripData }) {
 
         {/* Hotels */}
         {hasHotels && (
-          <div className="print-page-section">
+          <div className="print-page-section mobile-pdf-page">
             <HotelsBlock hotels={tripData.hotels} country={tripData.country} />
           </div>
         )}
 
         {/* Package Tiers Comparison */}
-        <div className="print-page-section">
+        <div className="print-page-section mobile-pdf-page">
           <TiersBlock tripData={tripData} hotelRepo={hotelRepo} currency={tripData.currency} />
         </div>
 
@@ -234,14 +234,14 @@ export default function PreviewShell({ tripData }) {
 
         {/* Landmarks */}
         {hasLandmarks && (
-          <div className="print-page-section">
+          <div className="print-page-section mobile-pdf-page">
             <LandmarksBlock landmarks={tripData.landmarks} country={tripData.country} />
           </div>
         )}
 
         {/* Restaurants */}
         {hasRestaurants && (
-          <div className="print-page-section">
+          <div className="print-page-section mobile-pdf-page">
             <RestaurantsBlock restaurants={tripData.restaurants} />
           </div>
         )}
@@ -250,14 +250,14 @@ export default function PreviewShell({ tripData }) {
 
         {/* Extra Costs */}
         {hasExtraCosts && (
-          <div className="print-page-section">
+          <div className="print-page-section mobile-pdf-page">
             <ExtraCostsBlock extraCosts={tripData.extraCosts} currency={tripData.currency} />
           </div>
         )}
 
         {/* Notes */}
         {tripData.notes && (
-          <div className="print-page-section">
+          <div className="print-page-section mobile-pdf-page">
             <NotesBlock notes={tripData.notes} />
           </div>
         )}

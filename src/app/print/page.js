@@ -121,6 +121,34 @@ function PrintPreviewContent() {
           </button>
 
           <button 
+            onClick={async () => {
+              try {
+                const { exportTripToPDF } = await import('../../lib/pdfExporter');
+                const countryStr = tripData.country || 'وجهة';
+                const clientStr = tripData.clientName || 'عميل';
+                await exportTripToPDF('print-sheets-container', `${countryStr}_${clientStr}.pdf`);
+              } catch (e) {
+                alert('جاري البدء بالطباعة المباشرة...');
+                handlePrint();
+              }
+            }}
+            style={{ 
+              background: 'var(--g, #39FF14)', 
+              color: '#07101F', 
+              padding: '8px 18px', 
+              borderRadius: '8px', 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '8px',
+              fontSize: '14px',
+              fontWeight: '800',
+              boxShadow: '0 0 12px rgba(57, 255, 20, 0.4)'
+            }}
+          >
+            تحميل PDF مباشرة
+          </button>
+
+          <button 
             onClick={handlePrint}
             style={{ 
               background: 'var(--b, #0094D4)', 
@@ -135,7 +163,7 @@ function PrintPreviewContent() {
               boxShadow: '0 0 12px rgba(0, 148, 212, 0.4)'
             }}
           >
-            <Printer size={18} /> طباعة وتصدير PDF
+            <Printer size={18} /> طباعة النظام
           </button>
         </div>
       </div>

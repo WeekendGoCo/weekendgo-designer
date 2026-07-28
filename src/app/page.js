@@ -281,42 +281,42 @@ export default function Home() {
       </div>
 
       {/* Tabs Menu */}
-      <div className="home-tabs-responsive" style={{ display: 'flex', gap: '12px', borderBottom: '1px solid var(--gb)', marginBottom: '32px', paddingBottom: '12px', overflowX: 'auto', flexWrap: 'nowrap' }}>
+      <div className="home-tabs-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', borderBottom: '1px solid var(--gb)', marginBottom: '32px', paddingBottom: '16px' }}>
         <button
           onClick={() => setActiveTab('packages')}
           style={{
-            padding: '10px 20px',
-            borderRadius: '8px',
-            background: activeTab === 'packages' ? 'rgba(0, 229, 255, 0.15)' : 'transparent',
-            border: `1px solid ${activeTab === 'packages' ? 'var(--ne)' : 'transparent'}`,
+            padding: '12px 16px',
+            borderRadius: '10px',
+            background: activeTab === 'packages' ? 'rgba(0, 229, 255, 0.15)' : 'rgba(255, 255, 255, 0.03)',
+            border: `1px solid ${activeTab === 'packages' ? 'var(--ne)' : 'var(--gb)'}`,
             color: activeTab === 'packages' ? 'var(--ne)' : 'var(--text-muted)',
             fontWeight: '700',
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'center',
             gap: '8px',
             fontSize: '14px',
-            whiteSpace: 'nowrap',
-            flexShrink: 0
+            textAlign: 'center'
           }}
         >
           <FileText size={18} />
-          الباقات السياحية المحفوظة ({trips.length})
+          الباقات المحفوظة ({trips.length})
         </button>
         <button
           onClick={() => setActiveTab('hotels')}
           style={{
-            padding: '10px 20px',
-            borderRadius: '8px',
-            background: activeTab === 'hotels' ? 'rgba(0, 229, 255, 0.15)' : 'transparent',
-            border: `1px solid ${activeTab === 'hotels' ? 'var(--ne)' : 'transparent'}`,
+            padding: '12px 16px',
+            borderRadius: '10px',
+            background: activeTab === 'hotels' ? 'rgba(0, 229, 255, 0.15)' : 'rgba(255, 255, 255, 0.03)',
+            border: `1px solid ${activeTab === 'hotels' ? 'var(--ne)' : 'var(--gb)'}`,
             color: activeTab === 'hotels' ? 'var(--ne)' : 'var(--text-muted)',
             fontWeight: '700',
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'center',
             gap: '8px',
             fontSize: '14px',
-            whiteSpace: 'nowrap',
-            flexShrink: 0
+            textAlign: 'center'
           }}
         >
           <Hotel size={18} />
@@ -325,18 +325,18 @@ export default function Home() {
         <button
           onClick={() => setActiveTab('countries')}
           style={{
-            padding: '10px 20px',
-            borderRadius: '8px',
-            background: activeTab === 'countries' ? 'rgba(0, 229, 255, 0.15)' : 'transparent',
-            border: `1px solid ${activeTab === 'countries' ? 'var(--ne)' : 'transparent'}`,
+            padding: '12px 16px',
+            borderRadius: '10px',
+            background: activeTab === 'countries' ? 'rgba(0, 229, 255, 0.15)' : 'rgba(255, 255, 255, 0.03)',
+            border: `1px solid ${activeTab === 'countries' ? 'var(--ne)' : 'var(--gb)'}`,
             color: activeTab === 'countries' ? 'var(--ne)' : 'var(--text-muted)',
             fontWeight: '700',
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'center',
             gap: '8px',
             fontSize: '14px',
-            whiteSpace: 'nowrap',
-            flexShrink: 0
+            textAlign: 'center'
           }}
         >
           <Globe size={18} />
@@ -345,16 +345,18 @@ export default function Home() {
         <button
           onClick={() => setActiveTab('cars')}
           style={{
-            padding: '10px 20px',
-            borderRadius: '8px',
-            background: activeTab === 'cars' ? 'rgba(0, 229, 255, 0.15)' : 'transparent',
-            border: `1px solid ${activeTab === 'cars' ? 'var(--ne)' : 'transparent'}`,
+            padding: '12px 16px',
+            borderRadius: '10px',
+            background: activeTab === 'cars' ? 'rgba(0, 229, 255, 0.15)' : 'rgba(255, 255, 255, 0.03)',
+            border: `1px solid ${activeTab === 'cars' ? 'var(--ne)' : 'var(--gb)'}`,
             color: activeTab === 'cars' ? 'var(--ne)' : 'var(--text-muted)',
             fontWeight: '700',
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'center',
             gap: '8px',
-            fontSize: '14px'
+            fontSize: '14px',
+            textAlign: 'center'
           }}
         >
           <Car size={18} />
